@@ -27,3 +27,19 @@ Pour résoudre ce problème, les messages push ont été mis en place. Ce servic
 -   La taille des messages est limité
 
 ## points d’attention
+
+Pour envoyer un data message par une requete post:
+
+header:
+- Content-Type: application/json
+- Authorization: key=<your-server-key>
+
+body:
+```json
+{
+    "data": {
+        "test": "coucou"
+    },
+    "to" : "target-token"
+}
+```
