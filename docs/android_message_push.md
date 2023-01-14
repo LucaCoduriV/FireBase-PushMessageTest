@@ -117,6 +117,11 @@ Les étapes suivante sont tirées de cette documentation : https://firebase.goog
                 return super.onMessageReceived(message);
             }
 
+            val title: String = message.notification?.title.toString()
+            val text: String = message.notification?.body.toString()
+
+            Log.i("MYTAG", title)
+            Log.i("MYTAG", text)
 
             super.onMessageReceived(message)
         }
@@ -129,29 +134,46 @@ Les étapes suivante sont tirées de cette documentation : https://firebase.goog
 
     Vous trouverez plus de détails à propos de cette classe sur cette page: https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/FirebaseMessagingService
 
+    Veuillez noter que si vous développez pour Android 13, il est nécessaire de demander l'autorisation d'afficher des notifications.
+
 4.  Envoyer les messages push
 
-Pour envoyer un data message par une requete post:
+    Il existe donc deux type de message push, les notifications push et les data messssages.
+    Vous pouvez planifiez des notifications à l'aide de la console Firebase très facilement.
+    ![](Screenshot_3.png)
+    Vous pourez ensuite choisir le type de notification que vous souhaitez ainsi que le contenu de celui-ci.
 
-header:
+    Il vous sera aussi possible de tester votre notification avant de la mettre en "production".![](Screenshot_4.png)![](Screenshot_5.png)
+    Le token à ajouter correspond à celui que vous pouvez récupérer dans la fonction onNewToken que nous avons créé dans l'étape précédente.
 
--   Content-Type: application/json
--   Authorization: key=<your-server-key>
+    En revanche pour envoyer les data message, il n'existe malheureusement aucune interface pour cela. Il vous faut donc utiliser le sdk firebase via une autre application ou alors utiliser une requête http.
 
-body:
+    Pour ce tuto, nous allons le faire à l'aide d'une requête http.
+    Rendez vous dans les paramète de la console Firebase puis dans l'onglet Cloud Messaging et cliquez sur Gérer l'API pour pouvoir l'activer. ![](Screenshot_6.png)
 
-```json
-{
-    "data": {
-        "test": "coucou"
-    },
-    "to": "target-token"
-}
-```
+    Retournez maintenant dans l'onglet Cloud Messaging et notez la clé du serveur.
+
+    Vous pouvez à présent envoyer un data message par une requête post:
+
+    header:
+
+    -   `Content-Type: application/json`
+    -   `Authorization: key=\<clé-serveur>`
+
+    body:
+
+    ```json
+    {
+        "data": {
+            "test": "coucou"
+        },
+        "to": "target-token"
+    }
+    ```
 
 ## limitations
 
 -   Certain constructeur n'hésite pas à restreindre les applications dans le but de faire durer la batterie plus longtemps, par conséquent il est possible que les notifications/messages ne soient pas reçu par l'application.
 -   La taille des messages est limité
 
-## points d’attention
+## points à retenir
