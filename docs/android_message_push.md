@@ -2,21 +2,21 @@
 
 ## But
 
-Les messages push permettent de notifier une application de la récéption d'un message. Ils permettent par exemple d'envoyer des messages de notification pour stimuler le réengagement des utilisateurs ou alors tout simplement pour l'envoie de donnée.
+Les messages push permettent de notifier une application de la récéption d'un message. Ils permettent, par exemple, d'envoyer des messages de notification pour stimuler le réengagement des utilisateurs ou alors tout simplement pour l'envoi de données.
 
 Les notifications push ont été lancées pour la première fois en 2009 par Apple avec le "Apple Push Notification Service" et ont été introduites par Google en 2010 avec "Google Cloud to Device Messaging". Ce dernier a ensuite été fermé en 2015 pour être remplacé par Firebase cloud messaging.
 
-Il faut quand même noter que les smartphones Android doivent possèder le services de Google installé (Google play service). Sans ce service la communication push n'est pas possible ainsi que tout les autres services proposé par Firebase. Il n'est pas rare d'avoir des smartphones en Asie qui posssède pas ce service et il faut donc trouver une autre manière d'envoyer des messages push, mais souvent celà ne fonctionne pas très bien à cause des restriction pour économiser la batterie.
+Il faut quand même noter que les smartphones Android doivent avoir le service de Google installé (Google play service). Sans ce service la communication push ainsi que l'utilisation de tous les autres services proposé par Firebase n'est pas possible. Il n'est pas rare d'avoir des smartphones en Asie qui ne posssèdent pas ce service et il faut donc trouver une autre manière d'envoyer des messages push, mais souvent cela ne fonctionne pas très bien à cause des restrictions afin économiser la batterie.
 
 ## les problématiques qu’elle peut résoudre
 
-Un point fort de ce service, est qu'il est entièrement gratuit. Il permet donc d'implémenter une communication d'un serveur aux smartphones sans frais et sans prise de tête.
+Un point fort de ce service, est qu'il est entièrement gratuit. Il permet donc d'implémenter une communication d'un serveur aux smartphones sans frais et sans difficulté.
 
-Il permet de réduire la consommation de la batterie. En effet, si chaque application du smartphone contient une tâche de fond devant maintenir une connection tcp pour vérifier la récéption d'un message, la batterie ne tiendrais pas longtemps. Ce service est donc unique sur le smartphone et va tout simplement réveiller les applications qui doivent réaliser certaines tâches. De plus, réaliser une application souhaitant une fonctionnalité similaire aux messages push mais sans utiliser les services de Firebase devront se battre avec Android pour l'empêcher de les tuer. Les tâches ne sont pas forcément exécutée si l'appareil trouve qu'elle n'est pas utile ou qu'elle est trop gourmande et il est obligatoire d'afficher une notification pour avertir à l'utilisateur qu'une application tourne en fond et consomme donc la batterie.
+Il permet de réduire la consommation de la batterie. En effet, si chaque application du smartphone contient une tâche de fond devant maintenir une connection tcp pour vérifier la récéption d'un message, la batterie ne tiendrait pas longtemps. Ce service est donc unique sur le smartphone et va tout simplement réveiller les applications qui doivent réaliser certaines tâches. De plus, réaliser une application souhaitant une fonctionnalité similaire aux messages push mais sans utiliser les services de Firebase devront se battre avec Android pour l'empêcher de les tuer. Les tâches ne sont pas forcément exécutées si l'appareil trouve qu'elle n'est pas utile ou qu'elle est trop gourmande et il est obligatoire d'afficher une notification pour avertir à l'utilisateur qu'une application tourne en fond et consomme donc la batterie.
 
 ## Alternatives
 
-Il n'existe pas réellement d'alternative car tous les autres service passeront par Firebase pour afficher les messages push. Ce que les "alternatives" proposent est souvent uniquement une meilleure interface et analyse des données.
+Il n'existe pas réellement d'alternative car tous les autres services passeront par Firebase pour afficher les messages push. Ce que les "alternatives" proposent est souvent uniquement une meilleure interface et analyse des données.
 
 ## comment est-ce qu’elle s’utilise
 
@@ -73,16 +73,16 @@ Les étapes suivante sont tirées de cette documentation : https://firebase.goog
     }
     ```
 
-    -   Il faut ensuite ajouter les fichier de configuration firebase que nous allons ajouter à la prochaine étape.
+    -   Il faut ensuite ajouter les fichiers de configuration firebase que nous allons ajouter à la prochaine étape.
 
 2.  créer un projet Firebase
     -   Pour pouvoir utiliser Firebase il est nécessaire de vous créer un compte afin d'accéder à cette page: https://console.firebase.google.com/
     -   Maintenant que vous avez accès à la console, créez un nouveau projet:
         ![](Screenshot_1.png)
-    -   Saisissez le nom de votre projet puis cliquez continuer 2x et choisissez le compte que vous souhaiter utiliser pour les Google Analytics. Vous aurez maintenant accès à la console de votre projet. Depuis cette console, il est possible d'utiliser les différents services que propose Firebase.
+    -   Saisissez le nom de votre projet puis cliquez sur continuer 2x et choisissez le compte que vous souhaiter utiliser pour les Google Analytics. Vous aurez maintenant accès à la console de votre projet. Depuis cette console, il est possible d'utiliser les différents services que propose Firebase.
     -   Il faut maintenant importer la configuration dans notre projet Android. Pour cela cliquez sur l'icone android sur la page d'acceuil.![](Screenshot_2.png)
     -   Remplissez à présent les champs obligatoire demandé durant l'assistant de configuration. Veillez à mettre un nom de package qui correspond bien à celui de votre application.
-    -   Lorsqu'il vous sera demandé téléchargez le fichier google-services.json et mettez le dans le dossier `./app/` de votre projet. Il permet à votre application de communiquer avec votre projet firebase.
+    -   Téléchargez le fichier google-services.json et mettez le dans le dossier `./app/` de votre projet. Il permet à votre application de communiquer avec votre projet firebase.
     -   Vous pouvez ensuite sauter les étapes d'après car nous l'avons déjà fais dans la première partie.
 3.  Ajouter un service Cloud Messaging à son application
     Nous allons maintenant ajouter le service qui va être utilisé pour réagir aux messages push. Pour cela nous allons ajouter ces lignes à l'intérieur du tag `\<application>` dans notre fichier manifest se trouvant dans `./app/src/main/AndroidManifest.xml`
@@ -128,9 +128,9 @@ Les étapes suivante sont tirées de cette documentation : https://firebase.goog
     }
     ```
 
-    Dans le code ci-dessus la fonction onNewToken est utilisez pour récupérer le token utilisé pour identifier votre appareil. Ce token peut être renouvelé dans certains cas. Ce token est utile lorsque vous souhaitez cibler un appareil en particulier.
+    Dans le code ci-dessus la fonction onNewToken est d'utiliser pour récupérer le token permettant d'identifier votre appareil. Ce token peut être renouvelé dans certains cas. Ce token est utile lorsque vous souhaitez cibler un appareil en particulier.
 
-    La fonction onMessageReceived est appelée lors de la récéption d'un nouveau message. Que votre application soit ouverte, en arrière plan ou alors fermée cette fonction sera toujours appelée. Je dois avouez que en vous disant ça je ne vous dis pas totalement la vérité. Il existe deux type de message push, les data messages et les notifications push. Ce que j'ai dis est vrai dans le premier cas. En revanche lors du deuxième cas la fonction `onMessageReceived` ne sera appelé que lorsque l'application est ouverte. Cela vous permet de décider comment vous souhaitez afficher cette notification. Les notifications push ne sont pas géré par cette fonction lorsque votre application est en arrière plan ou fermée, une notification est tout simplement affiché sur le téléphone.
+    La fonction onMessageReceived est appelée lors de la récéption d'un nouveau message. Que votre application soit ouverte, en arrière plan ou alors fermée cette fonction sera toujours appelée. En réalité, il existe deux type de messages push, les data messages et les notifications push. Le fonctionnement décrit précédemment est vrai dans le premier cas. En revanche lors du deuxième cas la fonction `onMessageReceived` ne sera appelée que lorsque l'application est ouverte. Cela vous permet de décider comment vous souhaitez afficher cette notification. Les notifications push ne sont pas gérées par cette fonction lorsque votre application est en arrière plan ou fermée, une notification est tout simplement affichée sur le téléphone.
 
     Vous trouverez plus de détails à propos de cette classe sur cette page: https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/FirebaseMessagingService
 
@@ -138,7 +138,7 @@ Les étapes suivante sont tirées de cette documentation : https://firebase.goog
 
 4.  Envoyer les messages push
 
-    Il existe donc deux type de message push, les notifications push et les data messssages.
+    Il existe donc deux types de messages push, les notifications push et les data messssages.
     Vous pouvez planifiez des notifications à l'aide de la console Firebase très facilement.
     ![](Screenshot_3.png)
     Vous pourez ensuite choisir le type de notification que vous souhaitez ainsi que le contenu de celui-ci.
@@ -146,10 +146,10 @@ Les étapes suivante sont tirées de cette documentation : https://firebase.goog
     Il vous sera aussi possible de tester votre notification avant de la mettre en "production".![](Screenshot_4.png)![](Screenshot_5.png)
     Le token à ajouter correspond à celui que vous pouvez récupérer dans la fonction onNewToken que nous avons créé dans l'étape précédente.
 
-    En revanche pour envoyer les data message, il n'existe malheureusement aucune interface pour cela. Il vous faut donc utiliser le sdk firebase via une autre application ou alors utiliser une requête http.
+    En revanche pour envoyer les data messages, il n'existe malheureusement aucune interface pour cela. Il vous faut donc utiliser le sdk firebase via une autre application ou alors utiliser une requête http.
 
     Pour ce tuto, nous allons le faire à l'aide d'une requête http.
-    Rendez vous dans les paramète de la console Firebase puis dans l'onglet Cloud Messaging et cliquez sur Gérer l'API pour pouvoir l'activer. ![](Screenshot_6.png)
+    Rendez-vous dans les paramètres de la console Firebase puis dans l'onglet Cloud Messaging et cliquez sur Gérer l'API pour pouvoir l'activer. ![](Screenshot_6.png)
 
     Retournez maintenant dans l'onglet Cloud Messaging et notez la clé du serveur.
 
@@ -173,7 +173,7 @@ Les étapes suivante sont tirées de cette documentation : https://firebase.goog
 
 ## limitations
 
--   Certain constructeur n'hésite pas à restreindre les applications dans le but de faire durer la batterie plus longtemps, par conséquent il est possible que les notifications/messages ne soient pas reçu par l'application.
+-   Certains constructeurs n'hésitent pas à restreindre les applications dans le but de faire durer la batterie plus longtemps, par conséquent il est possible que les notifications/messages ne soient pas reçus par l'application.
 -   La taille des messages est limité
 
 ## points à retenir
