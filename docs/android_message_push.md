@@ -3,11 +3,12 @@
 ## But
 
 Les messages push permettent de notifier une application de la réception d'un message. Ils permettent, par exemple, d'envoyer des messages de notification pour stimuler le réengagement des utilisateurs ou alors tout simplement pour l'envoi de données. ---> faudrait préciser ce que c'est
+
 ? --> Les messages push sont des messages envoyés par un serveur à un appareil mobile via une connexion Internet, même lorsque l'application n'est pas en cours d'exécution. Ils permettent notamment de notifier une application de la réception d'un message, ce qui peut conduire, par exemple, à l'affichage d'une notification de l'application pour stimuler les utilisateurs.
 
-Les notifications push ont été lancées pour la première fois en 2009 par Apple avec le "Apple Push Notification Service" et ont été introduites par Google en 2010 avec "Google Cloud to Device Messaging". Ce dernier a ensuite été fermé en 2015 pour être remplacé par Firebase cloud messaging.
+Les notifications push ont été lancées pour la première fois en 2009 par Apple avec le "Apple Push Notification Service" et ont été introduites par Google en 2010 avec "Google Cloud to Device Messaging". Ce service a ensuite été fermé en 2015 pour être remplacé par Firebase cloud messaging.
 
-Il faut quand même noter que les smartphones Android doivent avoir le service de Google installé (Google play service). Sans ce service la communication push ainsi que l'utilisation de tous les autres services proposé par Firebase n'est pas possible. Il n'est pas rare d'avoir des smartphones en Asie qui ne posssèdent pas ce service et il faut donc trouver une autre manière d'envoyer des messages push, mais souvent cela ne fonctionne pas très bien à cause des restrictions afin économiser la batterie.
+Il est important de noter que les smartphones Android ont l'obligation d'avoir le service de Google installé (Google play service), sans quoi la communication push ainsi que l'utilisation de tous les autres services proposés par Firebase ne sont pas possible. Cependant, il est fréquent de retrouver des modèles/marques de smartphones, en Asie, qui ne posssèdent pas ce service. Il est donc nécessaire trouver une autre manière d'envoyer des messages push, mais cela pose souvent des problèmes de fonctionnement, en raison des restrictions appliquées dans le but d'économiser la batterie.
 
 ## les problématiques qu’elle peut résoudre
 
