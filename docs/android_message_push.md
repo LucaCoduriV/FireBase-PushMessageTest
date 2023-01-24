@@ -2,7 +2,8 @@
 
 ## But
 
-Les messages push permettent de notifier une application de la récéption d'un message. Ils permettent, par exemple, d'envoyer des messages de notification pour stimuler le réengagement des utilisateurs ou alors tout simplement pour l'envoi de données.
+Les messages push permettent de notifier une application de la réception d'un message. Ils permettent, par exemple, d'envoyer des messages de notification pour stimuler le réengagement des utilisateurs ou alors tout simplement pour l'envoi de données. ---> faudrait préciser ce que c'est
+? --> Les messages push sont des messages envoyés par un serveur à un appareil mobile via une connexion Internet, même lorsque l'application n'est pas en cours d'exécution. Ils permettent notamment de notifier une application de la réception d'un message, ce qui peut conduire, par exemple, à l'affichage d'une notification de l'application pour stimuler les utilisateurs.
 
 Les notifications push ont été lancées pour la première fois en 2009 par Apple avec le "Apple Push Notification Service" et ont été introduites par Google en 2010 avec "Google Cloud to Device Messaging". Ce dernier a ensuite été fermé en 2015 pour être remplacé par Firebase cloud messaging.
 
