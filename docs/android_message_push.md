@@ -18,13 +18,13 @@ Un point fort de ce service, est qu'il est entièrement gratuit. Il permet donc 
 
 ? --> Un avantage non négligeable de ce service est le fait qu'il soit gratuit, ce qui permet à quiconque d'implémenter une communication entre un serveur et son application sans le moindre frais.
 
-De plus, il permet de réduire la consommation de batterie. En effet, si chaque application du smartphone contenait une tâche de fond devant maintenir une connexion TCP afin d'attendre sur la réception d'un message, la batterie ne tiendrait pas longtemps. Ce service est donc unique sur le smartphone, oblige toutes les applications à passer par lui, et se charge simplement de réveiller les applications qui doivent réaliser certaines tâches (réception d'un message). Il devient par conséquent laborieux de réaliser une application avec un système similaire aux messages push, mais sans utiliser les services de Firebase. C'est notamment causé par le fait qu'Android cherche constamment à optimiser le système et qu'il détruit par conséquent la moindre tâche qu'il ne juge pas nécessaire. Un tâche jugée pas assez utile ou trop gourmande par l'appareil ne sera donc jamais exécutée. De plus, il est obligatoire, dans ce cas, d'afficher une notification pour avertir à l'utilisateur qu'une application tourne en fond et consomme donc la batterie.
+Il permet également de réduire la consommation de batterie. En effet, si chaque application du smartphone contenait une tâche de fond devant maintenir une connexion TCP afin d'attendre sur la réception d'un message, la batterie ne tiendrait pas longtemps. Ce service est donc unique sur le smartphone, oblige toutes les applications à passer par lui, et se charge simplement de réveiller les applications qui doivent réaliser certaines tâches (réception d'un message). Il devient par conséquent laborieux de réaliser une application avec un système similaire aux messages push, mais sans utiliser les services de Firebase. C'est notamment causé par le fait qu'Android cherche constamment à optimiser le système et qu'il détruit par conséquent la moindre tâche qu'il ne juge pas nécessaire. Un tâche jugée pas assez utile ou trop gourmande par l'appareil ne sera donc jamais exécutée. De plus, il est obligatoire, dans ce cas, d'afficher une notification pour avertir à l'utilisateur qu'une application tourne en fond et consomme donc la batterie.
 
 ## Alternatives
 
-Il n'existe pas réellement d'alternative car tous les autres services passeront par Firebase pour afficher les messages push. Ce que les "alternatives" proposent est souvent uniquement une meilleure interface et analyse des données.
+Il n'existe pas réellement d'alternatives car tous les autres services passeront par Firebase pour afficher les messages push. Ce que les "alternatives" proposent consiste souvent uniquement en une meilleure interface et analyse des données.
 
-## comment est-ce qu’elle s’utilise
+## Comment est-ce qu’ils s'utilisent
 
 Les étapes suivante sont tirées de cette documentation : https://firebase.google.com/docs/android/setup
 
@@ -79,14 +79,14 @@ Les étapes suivante sont tirées de cette documentation : https://firebase.goog
     }
     ```
 
-    -   Il faut ensuite ajouter les fichiers de configuration firebase que nous allons ajouter à la prochaine étape.
+    -   Il reste ensuite à ajouter les fichiers de configuration firebase que nous allons ajouter à la prochaine étape.
 
-2.  créer un projet Firebase
-    -   Pour pouvoir utiliser Firebase il est nécessaire de vous créer un compte afin d'accéder à cette page: https://console.firebase.google.com/
+2.  Créer un projet Firebase
+    -   Pour pouvoir utiliser Firebase, il est nécessaire de vous créer un compte afin d'accéder à cette page: https://console.firebase.google.com/
     -   Maintenant que vous avez accès à la console, créez un nouveau projet:
         ![](Screenshot_1.png)
-    -   Saisissez le nom de votre projet puis cliquez sur continuer 2x et choisissez le compte que vous souhaiter utiliser pour les Google Analytics. Vous aurez maintenant accès à la console de votre projet. Depuis cette console, il est possible d'utiliser les différents services que propose Firebase.
-    -   Il faut maintenant importer la configuration dans notre projet Android. Pour cela cliquez sur l'icone android sur la page d'acceuil.![](Screenshot_2.png)
+    -   Saisissez le nom de votre projet, puis cliquez sur "continuer" 2x et choisissez le compte que vous souhaiter utiliser pour les Google Analytics. Vous aurez maintenant accès à la console de votre projet. Depuis cette console, il est possible d'utiliser les différents services que propose Firebase.
+    -   Il faut maintenant importer la configuration dans notre projet Android. Pour cela, cliquez sur l'icone android sur la page d'acceuil.![](Screenshot_2.png)
     -   Remplissez à présent les champs obligatoire demandé durant l'assistant de configuration. Veillez à mettre un nom de package qui correspond bien à celui de votre application.
     -   Téléchargez le fichier google-services.json et mettez le dans le dossier `./app/` de votre projet. Il permet à votre application de communiquer avec votre projet firebase.
     -   Vous pouvez ensuite sauter les étapes d'après car nous l'avons déjà fais dans la première partie.
