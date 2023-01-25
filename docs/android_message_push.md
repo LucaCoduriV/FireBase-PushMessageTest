@@ -13,7 +13,7 @@ Les messages push offrent un connexion constamment ouverte et permettent aux app
 
 Il existe deux types de messages push :
 - Les messages de notifications peuvent être considérés comme des "messages d'affichage" et sont gérés automatiquement par le SDK FCM.
-- Des messages de données qui sont gérés par l'application cliente.
+- Les messages de données qui sont gérés par l'application cliente.
 
 ## Les problématiques qu’ils peuvent résoudre
 
@@ -148,7 +148,7 @@ Vous trouverez un exemple sur ce repo: https://github.com/LucaCoduriV/PushMessag
 
     Dans le code ci-dessus, la fonction `onNewToken` est d'utilisée pour récupérer le token permettant d'identifier votre appareil. Ce token peut être renouvelé dans certains cas. Ce token est utile lorsque vous souhaitez cibler un appareil en particulier.
 
-    La fonction `onMessageReceived` est appelée lors de la réception d'un nouveau message. Cette fonction sera toujours appelée, que votre application soit ouverte, en arrière plan ou fermée. En réalité, il existe deux type de messages push, les data messages et les notifications push. Le fonctionnement décrit précédemment est vrai dans le premier cas. En revanche lors du deuxième cas la fonction `onMessageReceived` ne sera appelée que lorsque l'application est ouverte. Cela vous permet de décider comment vous souhaitez afficher cette notification. Les notifications push ne sont pas gérées par cette fonction lorsque votre application est en arrière plan ou fermée, une notification est tout simplement affichée sur le téléphone.
+    Dans le cas de messages de données, la fonction `onMessageReceived` est appelée lors de la réception d'un nouveau message. Cette fonction sera toujours appelée, que votre application soit ouverte, en arrière plan ou fermée. Cependant, comme décrit en introduction, la gestion des messages de notification est différente de celle des messages de données car elle est automatisée par le SDK. Dans ce second cas, la fonction `onMessageReceived` n'est appelée que si l'application est active. Cela vous permet de décider comment vous souhaitez traiter cette notification. Les notifications push ne sont pas gérées par cette fonction lorsque votre application est en arrière plan ou fermée. La notification est tout simplement affichée sur le téléphone.
 
     Vous trouverez plus de détails à propos de cette classe sur cette page: https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/FirebaseMessagingService
 
@@ -156,7 +156,7 @@ Vous trouverez un exemple sur ce repo: https://github.com/LucaCoduriV/PushMessag
 
 4.  Envoyer les messages push
 
-    Il existe donc deux types de messages push, les notifications push et les data messages.
+    Il existe deux types de messages push, les notifications push et les data messages.
     Vous pouvez planifiez des notifications à l'aide de la console Firebase très facilement.
     <p align="center">
     <img src="Screenshot_3.png" width="250"/>
