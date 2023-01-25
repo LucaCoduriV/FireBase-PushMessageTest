@@ -196,13 +196,13 @@ Vous trouverez un exemple sur ce repo: https://github.com/LucaCoduriV/PushMessag
     }
     ```
 
-## limitations
+## Limitations
 
--   Certains constructeurs n'hésitent pas à restreindre les applications dans le but de faire durer la batterie plus longtemps, par conséquent il est possible que les notifications/messages ne soient pas reçus par l'application.
--   La taille des messages est limité
+-   Certains constructeurs n'hésitent pas à restreindre les actions desapplications dans le but d'économiser. Par conséquent, il est possible que les notifications/messages ne soient pas reçus par l'application.
+-   La taille des messages est limitée.
 
-## points à retenir
-- Pour fonctionner les messages push garde une connexion constamment ouverte avec firebase.
+## Points à retenir
+- Une seule connexion : pour fonctionner, les messages push gardent une connexion constamment ouverte avec Firebase.
 - 2 types de Message Push: Data et notification
-- Les alternatives sont obligées de passer par les serveurs de firebase pour que cela fonctionne correctement.
-- Le Smartphone doit posséder les services Google Play pour que cela marche.
+- Un seul service : les alternatives sont obligées de passer par les serveurs de firebase pour que cela fonctionne correctement.
+- Dépendance forte avec Google : le Smartphone doit posséder les services Google Play pour que cela marche.
