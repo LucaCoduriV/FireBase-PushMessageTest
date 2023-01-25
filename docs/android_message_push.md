@@ -10,7 +10,7 @@ Les notifications push ont été lancées pour la première fois en 2009 par App
 
 Il est important de noter que les smartphones Android ont l'obligation d'avoir le service de Google installé (Google play service), sans quoi la communication push ainsi que l'utilisation de tous les autres services proposés par Firebase ne sont pas possible. Cependant, il est fréquent de retrouver des modèles/marques de smartphones, principalement en Asie, qui ne posssèdent pas ce service. Il est donc nécessaire trouver une autre manière d'envoyer des messages push, mais cela pose souvent des problèmes de fonctionnement, en raison des restrictions appliquées dans le but d'économiser la batterie.
 
-? --> Les message push offre un connexion constamment ouverte et permettent aux applications d'y faire transiter leurs messages. Comme ce service est en constante écoute, l'application est rapidement réveillée lorsque le smartphone reçoit un message lui étant destiné. Tous les messages transitent obligatoirement par un serveur Firebase. 
+? --> Les message push offrent un connexion constamment ouverte et permettent aux applications d'y faire transiter leurs messages. Comme ce service est en constante écoute, l'application est rapidement réveillée lorsque le smartphone reçoit un message lui étant destiné. Tous les messages transitent obligatoirement par un serveur Firebase. 
 
 ## Les problématiques qu’ils peuvent résoudre
 
