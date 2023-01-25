@@ -23,6 +23,7 @@ Il n'existe pas réellement d'alternatives car tous les autres services passeron
 ## Comment est-ce qu’ils s'utilisent
 
 Les étapes suivante sont tirées de cette documentation : https://firebase.google.com/docs/android/setup
+
 Vous trouverez un exemple sur ce repo: https://github.com/LucaCoduriV/PushMessageTest
 
 1.  Ajouter Firebase à son application
