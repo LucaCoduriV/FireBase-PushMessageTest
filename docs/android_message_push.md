@@ -8,7 +8,7 @@ Les notifications push ont été lancées pour la première fois en 2009 par App
 
 Il est important de noter que les smartphones Android ont l'obligation d'avoir le service de Google installé (Google play service), sans quoi la communication push ainsi que l'utilisation de tous les autres services proposés par Firebase ne sont pas possible. Cependant, il est fréquent de retrouver des modèles/marques de smartphones, principalement en Asie, qui ne posssèdent pas ce service. Il est donc nécessaire trouver une autre manière d'envoyer des messages push, mais cela pose souvent des problèmes de fonctionnement, en raison des restrictions appliquées dans le but d'économiser la batterie.
 
-Les message push offrent un connexion constamment ouverte et permettent aux applications d'y faire transiter leurs messages. Comme ce service est en constante écoute, l'application est rapidement réveillée lorsque le smartphone reçoit un message lui étant destiné. Tous les messages transitent obligatoirement par un serveur Firebase. 
+Les messages push offrent un connexion constamment ouverte et permettent aux applications d'y faire transiter leurs messages. Comme ce service est en constante écoute, l'application est rapidement réveillée lorsque le smartphone reçoit un message lui étant destiné. Tous les messages transitent obligatoirement par un serveur Firebase. 
 
 ## Les problématiques qu’ils peuvent résoudre
 
@@ -80,12 +80,21 @@ Les étapes suivante sont tirées de cette documentation : https://firebase.goog
 2.  Créer un projet Firebase
     -   Pour pouvoir utiliser Firebase, il est nécessaire de vous créer un compte afin d'accéder à cette page: https://console.firebase.google.com/
     -   Maintenant que vous avez accès à la console, créez un nouveau projet:
-        ![](Screenshot_1.png)
+
+        <p align="center">
+        <img src="Screenshot_1.png" width="400"/>
+        </p>
+        
     -   Saisissez le nom de votre projet, puis cliquez sur "continuer" 2x et choisissez le compte que vous souhaiter utiliser pour les Google Analytics. Vous aurez maintenant accès à la console de votre projet. Depuis cette console, il est possible d'utiliser les différents services que propose Firebase.
-    -   Il faut maintenant importer la configuration dans notre projet Android. Pour cela, cliquez sur l'icone android sur la page d'acceuil.![](Screenshot_2.png)
+    -   Il faut maintenant importer la configuration dans notre projet Android. Pour cela, cliquez sur l'icone android sur la page d'acceuil.
+    
+    <p align="center">
+    <img src="Screenshot_2.png" width="400"/>
+    </p>
+    
     -   Remplissez à présent les champs obligatoire demandé durant l'assistant de configuration. Veillez à mettre un nom de package qui correspond bien à celui de votre application.
     -   Téléchargez le fichier google-services.json et mettez le dans le dossier `./app/` de votre projet. Il permet à votre application de communiquer avec votre projet firebase.
-    -   Vous pouvez ensuite sauter les étapes d'après car nous l'avons déjà fais dans la première partie.
+    -   Vous pouvez ensuite sauter les étapes d'après car nous l'avons déjà fait dans la première partie.
 3.  Ajouter un service Cloud Messaging à son application
     Nous allons maintenant ajouter le service qui va être utilisé pour réagir aux messages push. Pour cela nous allons ajouter ces lignes à l'intérieur du tag `\<application>` dans notre fichier manifest se trouvant dans `./app/src/main/AndroidManifest.xml`
 
@@ -140,18 +149,30 @@ Les étapes suivante sont tirées de cette documentation : https://firebase.goog
 
 4.  Envoyer les messages push
 
-    Il existe donc deux types de messages push, les notifications push et les data messssages.
+    Il existe donc deux types de messages push, les notifications push et les data messages.
     Vous pouvez planifiez des notifications à l'aide de la console Firebase très facilement.
-    ![](Screenshot_3.png)
-    Vous pourez ensuite choisir le type de notification que vous souhaitez ainsi que le contenu de celui-ci.
+    <p align="center">
+    <img src="Screenshot_3.png" width="400"/>
+    </p>
+    
+    Vous pourez ensuite choisir le type de notification que vous souhaitez ainsi que le contenu de cette dernière.
 
-    Il vous sera aussi possible de tester votre notification avant de la mettre en "production".![](Screenshot_4.png)![](Screenshot_5.png)
+    Il vous sera aussi possible de tester votre notification avant de la mettre en "production".
+    <p align="center">
+    <img src="Screenshot_4.png" width="400"/>
+    <img src="Screenshot_5.png" width="400"/>
+    </p>
+    
     Le token à ajouter correspond à celui que vous pouvez récupérer dans la fonction onNewToken que nous avons créé dans l'étape précédente.
 
     En revanche pour envoyer les data messages, il n'existe malheureusement aucune interface pour cela. Il vous faut donc utiliser le sdk firebase via une autre application ou alors utiliser une requête http.
 
     Pour ce tuto, nous allons le faire à l'aide d'une requête http.
-    Rendez-vous dans les paramètres de la console Firebase puis dans l'onglet Cloud Messaging et cliquez sur Gérer l'API pour pouvoir l'activer. ![](Screenshot_6.png)
+    Rendez-vous dans les paramètres de la console Firebase puis dans l'onglet Cloud Messaging et cliquez sur Gérer l'API pour pouvoir l'activer.
+    
+    <p align="center">
+    <img src="Screenshot_6.png" width="600"/>
+    </p>
 
     Retournez maintenant dans l'onglet Cloud Messaging et notez la clé du serveur.
 
