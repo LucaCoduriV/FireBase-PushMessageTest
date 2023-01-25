@@ -1,5 +1,5 @@
 # Android message push
-
+Auteurs: Chloé Fontaine, Tania Nunnez, Luca Coduri
 ## But
 
 Les messages push sont des messages envoyés par un serveur à un appareil mobile via une connexion Internet, même lorsque l'application n'est pas en cours d'exécution. Ils permettent notamment de notifier une application de la réception d'un message, ce qui peut conduire, par exemple, à l'affichage d'une notification de l'application pour stimuler les utilisateurs.
