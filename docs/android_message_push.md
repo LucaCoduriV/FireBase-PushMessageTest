@@ -200,3 +200,7 @@ Les étapes suivante sont tirées de cette documentation : https://firebase.goog
 -   La taille des messages est limité
 
 ## points à retenir
+- Pour fonctionner les messages push garde une connexion constamment ouverte avec firebase.
+- 2 types de Message Push: Data et notification
+- Les alternatives sont obligées de passer par les serveurs de firebase pour que cela fonctionne correctement.
+- Le Smartphone doit posséder les services Google Play pour que cela marche.
