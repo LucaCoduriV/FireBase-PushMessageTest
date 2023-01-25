@@ -156,13 +156,13 @@ Vous trouverez un exemple sur ce repo: https://github.com/LucaCoduriV/PushMessag
 
 4.  Envoyer les messages push
 
-    Il existe deux types de messages push, les notifications push et les data messages.
-    Vous pouvez planifiez des notifications à l'aide de la console Firebase très facilement.
+    Il existe deux types de messages push : les notifications push et les data messages.
+    Vous pouvez planifier des notifications à l'aide de la console Firebase très facilement.
     <p align="center">
     <img src="Screenshot_3.png" width="250"/>
     </p>
     
-    Vous pourez ensuite choisir le type de notification que vous souhaitez ainsi que le contenu de cette dernière.
+    Vous pourrez ensuite choisir le type de notification que vous souhaitez, ainsi que son contenu.
 
     Il vous sera aussi possible de tester votre notification avant de la mettre en "production".
     <p align="center">
@@ -170,18 +170,18 @@ Vous trouverez un exemple sur ce repo: https://github.com/LucaCoduriV/PushMessag
     <img src="Screenshot_5.png" width="250"/>
     </p>
     
-    Le token à ajouter correspond à celui que vous pouvez récupérer dans la fonction onNewToken que nous avons créé dans l'étape précédente.
+    Le token à ajouter correspond à celui que vous pouvez récupérer dans la fonction `onNewToken` que nous avons créé dans l'étape précédente.
 
-    En revanche pour envoyer les data messages, il n'existe malheureusement aucune interface pour cela. Il vous faut donc utiliser le sdk firebase via une autre application ou alors utiliser une requête http.
+    En revanche, il n'existe malheureusement aucune interface pour envoyer les data messages. Il vous faut donc utiliser le SDK Firebase via une autre application, ou alors utiliser une requête HTTP.
 
-    Pour ce tuto, nous allons le faire à l'aide d'une requête http.
-    Rendez-vous dans les paramètres de la console Firebase puis dans l'onglet Cloud Messaging et cliquez sur Gérer l'API pour pouvoir l'activer.
+    Dans ce tuto, nous allons utiliser une requête HTTP.
+    Rendez vous dans les paramètres de la console Firebase puis dans l'onglet "Cloud Messaging" et cliquez sur "Gérer l'API" pour pouvoir l'activer.
     
     <p align="center">
     <img src="Screenshot_6.png" width="400"/>
     </p>
 
-    Retournez maintenant dans l'onglet Cloud Messaging et notez la clé du serveur.
+    Retournez maintenant dans l'onglet "Cloud Messaging" et retenez la clé du serveur.
 
     Vous pouvez à présent envoyer un data message par une requête post:
 
