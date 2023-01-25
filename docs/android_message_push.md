@@ -1,5 +1,6 @@
 # Android message push
 Auteurs: Chloé Fontaine, Tania Nunez, Luca Coduri
+Date: 25.01.2023
 ## But
 
 Les messages push sont des messages envoyés par un serveur à un appareil mobile via une connexion Internet, même lorsque l'application n'est pas en cours d'exécution. Ils permettent notamment de notifier une application de la réception d'un message, ce qui peut conduire, par exemple, à l'affichage d'une notification de l'application pour stimuler les utilisateurs.
@@ -9,6 +10,10 @@ Les notifications push ont été lancées pour la première fois en 2009 par App
 Il est important de noter que les smartphones Android ont l'obligation d'avoir le service de Google installé (Google play service), sans quoi la communication push ainsi que l'utilisation de tous les autres services proposés par Firebase ne sont pas possible. Cependant, il est fréquent de retrouver des modèles/marques de smartphones, principalement en Asie, qui ne posssèdent pas ce service. Il est donc nécessaire trouver une autre manière d'envoyer des messages push, mais cela pose souvent des problèmes de fonctionnement, en raison des restrictions appliquées dans le but d'économiser la batterie.
 
 Les messages push offrent un connexion constamment ouverte et permettent aux applications d'y faire transiter leurs messages. Comme ce service est en constante écoute, l'application est rapidement réveillée lorsque le smartphone reçoit un message lui étant destiné. Tous les messages transitent obligatoirement par un serveur Firebase. 
+
+Il existe deux types de messages push :
+- Les messages de notifications peuvent être considérés comme des "messages d'affichage" et sont gérés automatiquement par le SDK FCM.
+- Des messages de données qui sont gérés par l'application cliente.
 
 ## Les problématiques qu’ils peuvent résoudre
 
@@ -20,7 +25,7 @@ Il permet également de réduire la consommation de batterie. En effet, si chaqu
 
 Il n'existe pas réellement d'alternatives car tous les autres services passeront par Firebase pour afficher les messages push. Ce que les "alternatives" proposent consiste souvent uniquement en une meilleure interface et analyse des données.
 
-## Comment est-ce qu’ils s'utilisent
+## Exemple d'utilisation
 
 Les étapes suivante sont tirées de cette documentation : https://firebase.google.com/docs/android/setup
 
@@ -28,7 +33,7 @@ Vous trouverez un exemple sur ce repo: https://github.com/LucaCoduriV/PushMessag
 
 1.  Ajouter Firebase à son application
 
-    -   Dans votre fichier Gradle au niveau de la racine (au niveau du projet) ( \<project>/build.gradle ), ajoutez le plug-in de services Google en tant que dépendance buildscript :
+    -   Dans votre fichier Gradle, au niveau de la racine (au niveau du projet) ( \<project>/build.gradle ), ajoutez le plug-in de services Google en tant que dépendance buildscript :
 
     ```Gradle
     buildscript {
@@ -77,7 +82,7 @@ Vous trouverez un exemple sur ce repo: https://github.com/LucaCoduriV/PushMessag
     }
     ```
 
-    -   Il reste ensuite à ajouter les fichiers de configuration firebase que nous allons ajouter à la prochaine étape.
+    -   Il reste ensuite à ajouter les fichiers de configuration Firebase, ce que nous allons effectuer à la prochaine étape.
 
 2.  Créer un projet Firebase
     -   Pour pouvoir utiliser Firebase, il est nécessaire de vous créer un compte afin d'accéder à cette page: https://console.firebase.google.com/
@@ -88,14 +93,14 @@ Vous trouverez un exemple sur ce repo: https://github.com/LucaCoduriV/PushMessag
         </p>
         
     -   Saisissez le nom de votre projet, puis cliquez sur "continuer" 2x et choisissez le compte que vous souhaiter utiliser pour les Google Analytics. Vous aurez maintenant accès à la console de votre projet. Depuis cette console, il est possible d'utiliser les différents services que propose Firebase.
-    -   Il faut maintenant importer la configuration dans notre projet Android. Pour cela, cliquez sur l'icone android sur la page d'acceuil.
+    -   Il faut maintenant importer la configuration dans notre projet Android. Pour cela, cliquez sur l'icone android sur la page d'accueil.
     
     <p align="center">
     <img src="Screenshot_2.png" width="250"/>
     </p>
     
-    -   Remplissez à présent les champs obligatoire demandé durant l'assistant de configuration. Veillez à mettre un nom de package qui correspond bien à celui de votre application.
-    -   Téléchargez le fichier google-services.json et mettez le dans le dossier `./app/` de votre projet. Il permet à votre application de communiquer avec votre projet firebase.
+    -   Remplissez à présent les champs obligatoires demandés durant l'assistant de configuration. Veillez à mettre un nom de package qui correspond bien à celui de votre application.
+    -   Téléchargez le fichier google-services.json et mettez le dans le dossier `./app/` de votre projet. Il permet à votre application de communiquer avec votre projet Firebase.
     -   Vous pouvez ensuite sauter les étapes d'après car nous l'avons déjà fait dans la première partie.
 3.  Ajouter un service Cloud Messaging à son application
     Nous allons maintenant ajouter le service qui va être utilisé pour réagir aux messages push. Pour cela nous allons ajouter ces lignes à l'intérieur du tag `\<application>` dans notre fichier manifest se trouvant dans `./app/src/main/AndroidManifest.xml`
@@ -111,9 +116,9 @@ Vous trouverez un exemple sur ce repo: https://github.com/LucaCoduriV/PushMessag
     ```
 
     Veuillez noter que `MyService` correspond à la classe que l'on va utiliser.
-    Vous remarquerez aussi que l'on ajoute une intention qui est que lors de la récéption d'un message venant de firebase le service doit être reveillé.
+    Cet `Intent` permet à ce que le service soit réveillé lors de la réception d'un message en provenance de Firebase.
 
-    Maintenant il faut que l'on ajoute la classe MyService, pour ce faire ajoutez les lignes suivante dans un fichier `app\src\main\java\com.domaine.nom\MyService.kt`.
+    Il faut à présent que l'on ajoute la classe `MyService`. Pour ce faire, ajoutez les lignes suivante dans un fichier `app\src\main\java\com.domaine.nom\MyService.kt`.
 
     ```kotlin
     class MyService : FirebaseMessagingService() {
@@ -141,9 +146,9 @@ Vous trouverez un exemple sur ce repo: https://github.com/LucaCoduriV/PushMessag
     }
     ```
 
-    Dans le code ci-dessus la fonction onNewToken est d'utiliser pour récupérer le token permettant d'identifier votre appareil. Ce token peut être renouvelé dans certains cas. Ce token est utile lorsque vous souhaitez cibler un appareil en particulier.
+    Dans le code ci-dessus, la fonction `onNewToken` est d'utilisée pour récupérer le token permettant d'identifier votre appareil. Ce token peut être renouvelé dans certains cas. Ce token est utile lorsque vous souhaitez cibler un appareil en particulier.
 
-    La fonction onMessageReceived est appelée lors de la récéption d'un nouveau message. Que votre application soit ouverte, en arrière plan ou alors fermée cette fonction sera toujours appelée. En réalité, il existe deux type de messages push, les data messages et les notifications push. Le fonctionnement décrit précédemment est vrai dans le premier cas. En revanche lors du deuxième cas la fonction `onMessageReceived` ne sera appelée que lorsque l'application est ouverte. Cela vous permet de décider comment vous souhaitez afficher cette notification. Les notifications push ne sont pas gérées par cette fonction lorsque votre application est en arrière plan ou fermée, une notification est tout simplement affichée sur le téléphone.
+    La fonction `onMessageReceived` est appelée lors de la réception d'un nouveau message. Cette fonction sera toujours appelée, que votre application soit ouverte, en arrière plan ou fermée. En réalité, il existe deux type de messages push, les data messages et les notifications push. Le fonctionnement décrit précédemment est vrai dans le premier cas. En revanche lors du deuxième cas la fonction `onMessageReceived` ne sera appelée que lorsque l'application est ouverte. Cela vous permet de décider comment vous souhaitez afficher cette notification. Les notifications push ne sont pas gérées par cette fonction lorsque votre application est en arrière plan ou fermée, une notification est tout simplement affichée sur le téléphone.
 
     Vous trouverez plus de détails à propos de cette classe sur cette page: https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/FirebaseMessagingService
 
@@ -199,7 +204,7 @@ Vous trouverez un exemple sur ce repo: https://github.com/LucaCoduriV/PushMessag
 ## Limitations
 
 -   Certains constructeurs n'hésitent pas à restreindre les actions desapplications dans le but d'économiser. Par conséquent, il est possible que les notifications/messages ne soient pas reçus par l'application.
--   La taille des messages est limitée.
+-   La taille des messages est limitée (4000 bytes).
 
 ## Points à retenir
 - Une seule connexion : pour fonctionner, les messages push gardent une connexion constamment ouverte avec Firebase.
