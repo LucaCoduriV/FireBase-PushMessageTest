@@ -82,14 +82,14 @@ Les étapes suivante sont tirées de cette documentation : https://firebase.goog
     -   Maintenant que vous avez accès à la console, créez un nouveau projet:
 
         <p align="center">
-        <img src="Screenshot_1.png" width="400"/>
+        <img src="Screenshot_1.png" width="250"/>
         </p>
         
     -   Saisissez le nom de votre projet, puis cliquez sur "continuer" 2x et choisissez le compte que vous souhaiter utiliser pour les Google Analytics. Vous aurez maintenant accès à la console de votre projet. Depuis cette console, il est possible d'utiliser les différents services que propose Firebase.
     -   Il faut maintenant importer la configuration dans notre projet Android. Pour cela, cliquez sur l'icone android sur la page d'acceuil.
     
     <p align="center">
-    <img src="Screenshot_2.png" width="400"/>
+    <img src="Screenshot_2.png" width="250"/>
     </p>
     
     -   Remplissez à présent les champs obligatoire demandé durant l'assistant de configuration. Veillez à mettre un nom de package qui correspond bien à celui de votre application.
@@ -152,15 +152,15 @@ Les étapes suivante sont tirées de cette documentation : https://firebase.goog
     Il existe donc deux types de messages push, les notifications push et les data messages.
     Vous pouvez planifiez des notifications à l'aide de la console Firebase très facilement.
     <p align="center">
-    <img src="Screenshot_3.png" width="400"/>
+    <img src="Screenshot_3.png" width="250"/>
     </p>
     
     Vous pourez ensuite choisir le type de notification que vous souhaitez ainsi que le contenu de cette dernière.
 
     Il vous sera aussi possible de tester votre notification avant de la mettre en "production".
     <p align="center">
-    <img src="Screenshot_4.png" width="400"/>
-    <img src="Screenshot_5.png" width="400"/>
+    <img src="Screenshot_4.png" width="250"/>
+    <img src="Screenshot_5.png" width="250"/>
     </p>
     
     Le token à ajouter correspond à celui que vous pouvez récupérer dans la fonction onNewToken que nous avons créé dans l'étape précédente.
@@ -171,7 +171,7 @@ Les étapes suivante sont tirées de cette documentation : https://firebase.goog
     Rendez-vous dans les paramètres de la console Firebase puis dans l'onglet Cloud Messaging et cliquez sur Gérer l'API pour pouvoir l'activer.
     
     <p align="center">
-    <img src="Screenshot_6.png" width="600"/>
+    <img src="Screenshot_6.png" width="400"/>
     </p>
 
     Retournez maintenant dans l'onglet Cloud Messaging et notez la clé du serveur.
