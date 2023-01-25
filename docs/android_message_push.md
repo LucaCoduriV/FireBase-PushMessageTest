@@ -1,5 +1,5 @@
 # Android message push
-Auteurs: Chloé Fontaine, Tania Nunnez, Luca Coduri
+Auteurs: Chloé Fontaine, Tania Nunez, Luca Coduri
 ## But
 
 Les messages push sont des messages envoyés par un serveur à un appareil mobile via une connexion Internet, même lorsque l'application n'est pas en cours d'exécution. Ils permettent notamment de notifier une application de la réception d'un message, ce qui peut conduire, par exemple, à l'affichage d'une notification de l'application pour stimuler les utilisateurs.
@@ -204,5 +204,5 @@ Vous trouverez un exemple sur ce repo: https://github.com/LucaCoduriV/PushMessag
 ## Points à retenir
 - Une seule connexion : pour fonctionner, les messages push gardent une connexion constamment ouverte avec Firebase.
 - 2 types de Message Push: Data et notification
-- Un seul service : les alternatives sont obligées de passer par les serveurs de firebase pour que cela fonctionne correctement.
+- Un seul service : les alternatives sont obligées de passer par les serveurs de Firebase pour que cela fonctionne correctement.
 - Dépendance forte avec Google : le Smartphone doit posséder les services Google Play pour que cela marche.
